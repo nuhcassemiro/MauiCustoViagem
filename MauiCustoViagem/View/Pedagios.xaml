@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCustoViagem.View.Pedagios"
+             Title="Pedagios">
+    
+    <ContentPage.Resources>
+            <Style TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+        </ContentPage.Resources>
+
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked"/>
+            <ToolbarItem Text="Adicionar" Clicked="ToolbarItem_Clicked_1" />
+        </ContentPage.ToolbarItems>
+
+        <ContentPage.Content>
+        <VerticalStackLayout>
+            <ListView x:Name="lst_pedagios">
+                <ListView.Header>
+                    <Grid ColumnDefinitions="*, *, *, *, *">
+                        <Label Grid.Column="0" Text="Origem" />
+                        <Label Grid.Column="1" Text="Destino" />
+                        <Label Grid.Column="2" Text="Distancia" />
+                        <Label Grid.Column="3" Text="Rendimento" />
+                        <Label Grid.Column="4" Text="Preço" />
+                    </Grid>
+                </ListView.Header>
+            </ListView>
+            </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

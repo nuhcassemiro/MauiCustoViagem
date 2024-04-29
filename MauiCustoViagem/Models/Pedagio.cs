@@ -12,6 +12,6 @@ namespace MauiCustoViagem.Models
         public double Rendimento { get; set; }
         public double Preco { get; set; }
 
-        //public double Custo { get => Quantidade * Preco; }
+        // public double Custo { get => Rendimento * Preco; }
     }
 }
