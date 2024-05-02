@@ -1,12 +1,13 @@
 using MauiCustoViagem.Models;
 using System.Collections.ObjectModel;
+using System.Reflection.PortableExecutable;
 
 namespace MauiCustoViagem.View;
 
-public partial class Pedagios : ContentPage
+public partial class VerViagens : ContentPage
 {
     ObservableCollection<Models.Viagem> lista_viagens = new ObservableCollection<Models.Viagem>();
-    public Pedagios()
+    public VerViagens()
 	{
 		InitializeComponent();
         lst_viagens.ItemsSource = lista_viagens;
@@ -14,22 +15,21 @@ public partial class Pedagios : ContentPage
 
     private void ToolbarItem_Clicked(object sender, EventArgs e)
     {
-        double litro = lista_pedagios.Sum(i => (i.Distancia / i.Rendimento));
-        double soma = lista_pedagios.Sum(i => (litro * i.Preco));
+        double litro = lista_viagens.Sum(i => (i.Distancia / i.Rendimento));
+        double soma = lista_viagens.Sum(i => (litro * i.Preco));
         string msg = $"O total é {soma:C}";
         DisplayAlert("Somatória", msg, "Fechar");
     }
-
     protected async override void OnAppearing()
     {
-        if (lista_pedagios.Count == 0)
+        if (lista_viagens.Count == 0)
         {
-            List<Pedagio> tmp = await App.Db.GetAll();
-            foreach (Pedagio p in tmp)
+            List<Viagem> tmp = await App.Db.GetAll();
+            foreach (Viagem p in tmp)
             {
-                lista_pedagios.Add(p);
+                lista_viagens.Add(p);
             }
-        } // Fecha if
+        } 
     }
 
     private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
@@ -42,14 +42,14 @@ public partial class Pedagios : ContentPage
         try
         {
             MenuItem selecionado = (MenuItem)sender;
-            Pedagio p = selecionado.BindingContext as Pedagio;
+            Viagem v = selecionado.BindingContext as Viagem;
 
             bool confirm = await DisplayAlert("Tem certeza?", "Remover Pedagios", "Sim", "Cancelar");
             if (confirm)
             {
-                await App.Db.Delete(p.Id);
-                await DisplayAlert("Sucesso!", "Pedagio Removido", "OK");
-                lista_pedagios.Remove(p);
+                await App.Db.Delete(v.Id);
+                await DisplayAlert("Sucesso!", "Viagem removida", "OK");
+                lista_viagens.Remove(v);
             }
         }
         catch (Exception ex)
