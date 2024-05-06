@@ -13,15 +13,15 @@ namespace MauiCustoViagem.Helpers
             _conn.CreateTableAsync<Viagem>().Wait();
         }
 
-        public Task<int> Insert(Viagem p)
+        public Task<int> Insert(Viagem v)
         {
-            return _conn.InsertAsync(p);
+            return _conn.InsertAsync(v);
         }
 
-        public Task<List<Viagem>> Update(Viagem p)
+        public Task<List<Viagem>> Update(Viagem v)
         {
             string sql = "UPDATE Viagem SET Origem=?, Destino=?, Distancia=?, Rendimento=?, Preco=? WHERE Id=?";
-            return _conn.QueryAsync<Viagem>(sql, p.Origem, p.Destino, p.Distancia, p.Rendimento, p.Preco, p.Id);
+            return _conn.QueryAsync<Viagem>(sql, v.Origem, v.Destino, v.Distancia, v.Rendimento, v.Preco, v.Id);
         }
 
         public Task<List<Viagem>> GetAll()
@@ -40,5 +40,5 @@ namespace MauiCustoViagem.Helpers
             return _conn.QueryAsync<Viagem>(sql);
         }
 
-    }// fecha classe
-}// fecha namespace
+    }
+}

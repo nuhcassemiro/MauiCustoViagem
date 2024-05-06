@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCustoViagem.View.NovoPedagio"
+             Title="Pedagios">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked_1" />
+        <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <VerticalStackLayout>
+            <Label Text="Local:"/>
+            <Entry x:Name="txt_local"/>
+
+            <Label Text="Valor:"/>
+            <Entry x:Name="txt_valor"/>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+
+    <Button Text="Salvar" Clicked="Button_Clicked"/>
+</ContentPage>

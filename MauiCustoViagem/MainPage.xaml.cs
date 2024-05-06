@@ -27,19 +27,27 @@ namespace MauiCustoViagem
                     Distancia = Convert.ToDouble(txt_distancia.Text),
                     Rendimento = Convert.ToDouble(txt_rendimento.Text),
                     Preco = Convert.ToDouble(txt_preco.Text),
+                    Pedagio = Convert.ToDouble(txt_pedagio.Text)
                 };
+                
                 await App.Db.Insert(v);
+
+                /*double litro = double.Parse(txt_distancia.Text) / double.Parse(txt_rendimento.Text);
+                double soma = lista_viagens.Sum(i => (litro * i.Preco));
+                double pedagio = double.Parse(txt_pedagio.Text) + (soma);
+                string msg = $"O total é {soma:C}";
+
+                await DisplayAlert("Viagem inserida", msg, "Fechar");*/
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Ops", ex.Message, "OK");
-            }
+            }           
+        }
 
-            double litro = double.Parse(txt_distancia.Text) / double.Parse(txt_rendimento.Text);
-            double soma = lista_viagens.Sum(i => (litro * i.Preco));
-            string msg = $"O total é {soma:C}";
-            DisplayAlert("Viagem inserida", msg, "Fechar");
+        private async void ToolbarItem_Clicked_2(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new View.NovoPedagio());
         }
     }
-
 }

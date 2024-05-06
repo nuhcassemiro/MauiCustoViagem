@@ -7,6 +7,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked_1" />
         <ToolbarItem Text="Lista Viagens" Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem Text="Pedágios" Clicked="ToolbarItem_Clicked_2"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -25,6 +26,9 @@
 
             <Label Text="Preço:"/>
             <Entry x:Name="txt_preco"/>
+
+            <Label Text="Pedágio:"/>
+            <Entry x:Name="txt_pedagio"/>
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

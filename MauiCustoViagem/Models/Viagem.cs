@@ -11,6 +11,6 @@ namespace MauiCustoViagem.Models
         public double Distancia { get; set; }
         public double Rendimento { get; set; }
         public double Preco { get; set; }
-        public double Custo { get; set; }
+        public double Pedagio { get; set; }
     }
 }
